@@ -1,0 +1,15 @@
+.homePage {
+  @apply bg-gray-900 min-h-screen text-white;
+
+  .latestNews {
+    @apply p-5;
+
+    .title {
+      @apply text-3xl font-semibold mb-5;
+    }
+
+    &__preview {
+      @apply md:flex flex-wrap;
+    }
+  }
+}

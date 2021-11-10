@@ -1,0 +1,20 @@
+.newsCard {
+  @apply h-64 w-64 m-5  rounded-md border-solid border-2 overflow-hidden border-white;
+  min-width: 320px;
+
+  .imgBox {
+    @apply object-cover md:h-2/3;
+  }
+
+  .text {
+    @apply px-5 py-3;
+
+    .source {
+      @apply text-xs text-gray-400;
+    }
+
+    .description {
+      @apply text-sm mt-1;
+    }
+  }
+}
