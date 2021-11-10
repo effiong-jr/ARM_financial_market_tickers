@@ -4,7 +4,7 @@ const NewsCard = ({ imgUrl, source, desc }) => {
   return (
     <div className={styles.newsCard}>
       <div className={styles.imgBox}>
-        <img src={imgUrl} alt="news pix" />
+        <img src={imgUrl} alt="news pix" className={styles.newsImage} />
       </div>
       <div className={styles.text}>
         <div className={styles.source}>

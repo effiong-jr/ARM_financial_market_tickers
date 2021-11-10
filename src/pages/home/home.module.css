@@ -1,6 +1,10 @@
 .homePage {
   @apply bg-gray-900 min-h-screen text-white;
 
+  .searchFilter__box {
+    @apply mx-auto;
+  }
+
   .latestNews {
     @apply p-5;
 

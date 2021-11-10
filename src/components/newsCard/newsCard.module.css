@@ -1,9 +1,14 @@
 .newsCard {
-  @apply h-64 w-64 m-5  rounded-md border-solid border-2 overflow-hidden border-white;
+  @apply h-64 w-48 m-5  rounded-md border-solid border-2 overflow-hidden relative border-white;
   min-width: 320px;
 
   .imgBox {
-    @apply object-cover md:h-2/3;
+    @apply relative md:h-2/4;
+    /* max-width: 100%; */
+
+    .newsImage {
+      @apply object-cover h-full w-full;
+    }
   }
 
   .text {
