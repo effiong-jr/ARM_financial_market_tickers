@@ -10,9 +10,19 @@ const NewsCard = ({ imgUrl, source, desc }) => {
         <div className={styles.source}>
           <small>Source:</small>
           {` `}
-          {source}
+          <a
+            href={`https://${source}`}
+            target="_blank"
+            rel="noreferrer"
+            className={styles.sourceLink}
+          >
+            {source}
+          </a>
         </div>
-        <div className={styles.description}>{desc}</div>
+        <div className={styles.description}>
+          {desc.length > 90 ? desc.slice(0, 90) + ' ...' : desc} {` `}
+          <button className={styles.readMore}>Read more...</button>
+        </div>
       </div>
     </div>
   )

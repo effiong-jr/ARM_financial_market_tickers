@@ -15,11 +15,19 @@
     @apply px-5 py-3;
 
     .source {
-      @apply text-xs text-gray-400;
+      @apply text-xs text-gray-400 mb-3;
+
+      .sourceLink {
+        @apply text-red-400;
+      }
     }
 
     .description {
       @apply text-sm mt-1;
+
+      .readMore {
+        @apply text-red-400 underline;
+      }
     }
   }
 }

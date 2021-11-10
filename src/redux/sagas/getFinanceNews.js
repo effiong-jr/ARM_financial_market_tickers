@@ -1,4 +1,4 @@
-import { takeEvery, put } from 'redux-saga/effects'
+import { takeLatest, put } from 'redux-saga/effects'
 import axios from 'axios'
 import {
   financeNewsRequested,
@@ -6,11 +6,17 @@ import {
   financeNewsFailed,
 } from '../slices/financeNewsSlice'
 
-function* getFinanceNewsAsync() {
+function* getFinanceNewsAsync({ payload = {} }) {
+  const { selectedIndustry: industries = '', textInput: search = '' } = payload
+
   try {
     const { data } = yield axios({
       method: 'GET',
-      url: `https://api.marketaux.com/v1/news/all?api_token=${process.env.REACT_APP_API_TOKEN}`,
+      url: `https://api.marketaux.com/v1/news/all?language=en&${
+        industries.length ? `industries=${industries}&` : ''
+      }${search.length ? `search=${search}&` : ''}api_token=${
+        process.env.REACT_APP_API_TOKEN
+      }`,
     })
 
     yield put(financeNewsSuccess(data.data))
@@ -23,5 +29,5 @@ function* getFinanceNewsAsync() {
 }
 
 export function* watchGetFinanceNews() {
-  yield takeEvery(financeNewsRequested.type, getFinanceNewsAsync)
+  yield takeLatest(financeNewsRequested.type, getFinanceNewsAsync)
 }

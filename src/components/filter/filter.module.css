@@ -1,7 +1,35 @@
 .searchFilter {
-  @apply text-center py-5 text-black;
+  @apply text-center 
+  text-black border-solid border-b-2 border-gray-600 py-10;
+
+  .searchForm {
+    @apply sm:flex flex-wrap justify-center align-middle w-full;
+
+    .selectIndustry {
+      @apply flex align-middle;
+
+      &Input {
+        @apply max-w-md 
+        mr-5 text-center outline-none 
+        rounded-md text-sm font-semibold mb-10 sm:mb-0;
+
+        min-width: 10rem;
+      }
+    }
+  }
 
   .searchInput {
-    @apply sm:w-1/3 md:w-1/4 outline-none p-1 text-sm rounded-md;
+    @apply outline-none p-2 text-sm  
+    border-solid border-b-2 border-white bg-transparent
+    text-white;
+    width: 20rem;
+
+    &::placeholder {
+      @apply text-gray-500 text-xs;
+    }
+
+    &:placeholder-shown {
+      @apply bg-transparent;
+    }
   }
 }

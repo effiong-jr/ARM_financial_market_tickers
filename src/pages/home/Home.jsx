@@ -20,17 +20,23 @@ const Home = () => {
   const financeNews = useSelector((state) => state.financeNews)
   const marketStats = useSelector((state) => state.getMarketStats)
 
-  // useEffect(() => {
-  //   if (marketStats.error) {
-  //     toast.error(marketStats.error)
-  //   }
-  //   dispatch(financeNewsRequested())
-  //   dispatch(get_industries_list_requested())
-  // }, [dispatch, marketStats.error])
+  useEffect(() => {
+    dispatch(financeNewsRequested())
+  }, [dispatch])
 
-  // useEffect(() => {
-  //   dispatch(get_market_stats_requested(searchParams))
-  // }, [dispatch, searchParams])
+  useEffect(() => {
+    if (marketStats.error) {
+      toast.error(`Market stats error: ${marketStats.error}`)
+    }
+
+    if (financeNews.error) {
+      toast.error(financeNews.error)
+    }
+  }, [financeNews.error, marketStats.error])
+
+  useEffect(() => {
+    dispatch(get_market_stats_requested(searchParams))
+  }, [dispatch, searchParams])
 
   const newsContent = (financeNews.data || []).map((news) => (
     <React.Fragment key={news.uuid}>
@@ -48,7 +54,7 @@ const Home = () => {
         <SearchFilter setSearchParams={setSearchParams} />
       </div>
       <div className={styles.latestNews}>
-        <h2 className={styles.title}>Latest Global Financial News</h2>
+        <h2 className={styles.title}>Global Financial News</h2>
         <div className={styles.latestNews__preview}>{newsContent}</div>
       </div>
       <ToastContainer />
