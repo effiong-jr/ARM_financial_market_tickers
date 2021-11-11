@@ -3,7 +3,6 @@ import { ToastContainer, toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 import { useDispatch, useSelector } from 'react-redux'
 import { financeNewsRequested } from '../../redux/slices/financeNewsSlice'
-import { get_industries_list_requested } from '../../redux/slices/getIndustriesListSlice'
 import NewsCard from '../../components/newsCard/NewsCard'
 import SearchFilter from '../../components/filter/Filter'
 import styles from './home.module.css'
@@ -44,6 +43,8 @@ const Home = () => {
         imgUrl={news.image_url}
         source={news.source}
         desc={news.description}
+        url={news.url}
+        id={news.uuid}
       />
     </React.Fragment>
   ))

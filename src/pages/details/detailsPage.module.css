@@ -1,0 +1,35 @@
+.newsDetails {
+  @apply bg-gray-900 min-h-screen p-5 sm:p-20 text-white;
+
+  .title {
+    @apply text-2xl font-semibold text-center sm:w-2/3 mx-auto py-5;
+  }
+
+  .imageBox {
+    @apply w-full my-4  sm:w-2/3 m-auto;
+
+    .image {
+      @apply max-w-full rounded-md;
+    }
+
+    .publishedDate {
+      @apply text-xs;
+    }
+
+    .source {
+      @apply mt-2 text-gray-500;
+    }
+  }
+
+  .entities {
+    @apply mt-4 text-gray-400;
+
+    .entityHeading {
+      @apply text-white text-5xl;
+    }
+  }
+}
+
+.onError {
+  @apply bg-gray-900 min-h-screen p-5 text-3xl text-center sm:p-20 text-white;
+}

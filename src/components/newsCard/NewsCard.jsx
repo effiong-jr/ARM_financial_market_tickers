@@ -1,6 +1,7 @@
+import { Link } from 'react-router-dom'
 import styles from './newsCard.module.css'
 
-const NewsCard = ({ imgUrl, source, desc }) => {
+const NewsCard = ({ id, url, imgUrl, source, desc }) => {
   return (
     <div className={styles.newsCard}>
       <div className={styles.imgBox}>
@@ -11,7 +12,7 @@ const NewsCard = ({ imgUrl, source, desc }) => {
           <small>Source:</small>
           {` `}
           <a
-            href={`https://${source}`}
+            href={url}
             target="_blank"
             rel="noreferrer"
             className={styles.sourceLink}
@@ -20,8 +21,10 @@ const NewsCard = ({ imgUrl, source, desc }) => {
           </a>
         </div>
         <div className={styles.description}>
-          {desc.length > 90 ? desc.slice(0, 90) + ' ...' : desc} {` `}
-          <button className={styles.readMore}>Read more...</button>
+          {desc.length > 90 ? desc.slice(0, 90) + '...' : desc} {` `}
+          <Link to={`/market-news/${id}`} className={styles.readMore}>
+            Read more...
+          </Link>
         </div>
       </div>
     </div>
