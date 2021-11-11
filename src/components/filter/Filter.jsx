@@ -17,6 +17,7 @@ const SearchFilter = ({ setSearchParams, ...props }) => {
 
   useEffect(() => {
     dispatch(get_industries_list_requested())
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   useEffect(() => {
